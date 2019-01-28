@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <p>{{lessonProgress}}</p>
-    <Lesson></Lesson>
+    <h1>Welcome Home!</h1>
   </div>
 </template>
 

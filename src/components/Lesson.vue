@@ -1,12 +1,15 @@
 <template>
   <div class="lesson">
-    <h1>Lesson</h1>
+    <h1>{{lesson.name}}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "lesson"
+  name: "lesson",
+  props: {
+    lesson: Object
+  }
 };
 </script>
 
