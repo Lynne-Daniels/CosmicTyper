@@ -15,6 +15,11 @@ export default new Router({
       path: "/lessons",
       name: "lessons",
       component: () => import("@/views/Lessons")
+    },
+    {
+      path: "/lessons/:id",
+      name: "lesson",
+      component: () => import("@/views/Lesson")
     }
   ]
 });

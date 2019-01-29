@@ -6,13 +6,10 @@
 
 <script>
 import { mapGetters, mapState } from "vuex";
-import Lesson from "@/components/Lesson.vue";
 
 export default {
   name: "home",
-  components: {
-    Lesson
-  },
+  components: {},
   computed: {
     ...mapState("lessons", ["lessonProgress"]),
     ...mapGetters("lessons", [])

@@ -1,36 +1,30 @@
 <template>
   <div class="wrapper wrapper--lessons">
     <h1>Lessons</h1>
-    <Lesson v-for="(lesson, index) in lessons" :key="index" :lesson="lesson"/>
+    <LessonList v-for="(lesson, index) in lessons" :key="index" :lesson="lesson"/>
   </div>
 </template>
 
 <script>
-import Lesson from "@/components/Lesson";
+import { mapGetters, mapState } from "vuex";
+import LessonList from "@/components/Lesson-List";
 
 export default {
   name: "lessons",
   components: {
-    Lesson
+    LessonList
   },
   data() {
-    return {
-      lessons: []
-    };
+    return {};
   },
   created() {
-    this.getLessons();
-  },
-  methods: {
-    getLessons: async function() {
-      try {
-        const res = await fetch("http://localhost:4000/lessons");
-        const lessons = await res.json();
-        this.lessons = lessons;
-      } catch (e) {
-        console.log(e);
-      }
+    if (!this.areLessonsLoaded) {
+      this.$store.dispatch("lessons/getLessons");
     }
+  },
+  computed: {
+    ...mapState("lessons", ["lessonProgress", "lessons", "areLessonsLoaded"]),
+    ...mapGetters("lessons", [])
   }
 };
 </script>
