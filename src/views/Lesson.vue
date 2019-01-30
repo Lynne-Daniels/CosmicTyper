@@ -1,14 +1,18 @@
 <template>
   <div class="lesson-single">
-    <h1>{{lesson.name}}</h1>
+    <Typer :lesson="lesson.tasks[0]"/>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from "vuex";
+import Typer from "@/components/Typer";
 
 export default {
   name: "lesson",
+  components: {
+    Typer
+  },
   data() {
     return {
       lesson: null
